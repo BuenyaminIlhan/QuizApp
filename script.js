@@ -80,7 +80,40 @@ let questions = [{
 },
 ];
 
-for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
+let currentQuestion = 0;
+
+
+
+function init() {
+    showQuestion()
+    showAmount()
+    showAnswer()
+}
+
+
+function showAmount() {
+    document.getElementById('questionAmount').innerHTML = ` von ${questions.length}`;
+}
+
+function showQuestion() {
+    let question = questions[currentQuestion]
+    document.getElementById('question').innerHTML = question['question']
+    document.getElementById('currentquestion').innerHTML = '1'
+}
+
+function showAnswer() {
+    let question = questions[currentQuestion]
+    document.getElementById('answer1').innerHTML = question['answer1']
+    document.getElementById('answer2').innerHTML = question['answer2']
+    document.getElementById('answer3').innerHTML = question['answer4']
+    document.getElementById('answer4').innerHTML = question['answer4']
+}
+
+function answer(selection) {
+    let question = questions[currentQuestion]
+    if (selection == questions[0]['right-answer']) {
+        console.log('right')
+    } else {
+        console.log(questions[selection]['right-answer'])
+    }
 }

@@ -29,7 +29,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="init()">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Quiz App</span>
@@ -48,27 +48,26 @@
             </div>
 
             <div class="card-body">
-                <h5 class="card-title">Wer hat HTML erfunden?</h5>
-                <div class="card mb-2">
-                    <div class="card-body">
+                <h5 id="question" class="card-title"></h5>
+                <div class="card mb-2 quiz-answer-card"onclick="answer('answer1')">
+                    <div class="card-body" id="answer1">
+                    </div>
+                </div>
+
+                <div class="card mb-2 quiz-answer-card"onclick="answer('answer2')">
+                    <div class="card-body" id="answer2">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card"onclick="answer('answer3')">
+                    <div class="card-body" id="answer3">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2">
-                    <div class="card-body ">
-                        Antwort
-                    </div>
-                </div>
-
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card mb-2 quiz-answer-card"onclick="answer('answer4')">
+                    <div class="card-body" id="answer4">
                         Antwort
                     </div>
 
@@ -76,6 +75,10 @@
                 <div class="arrow-btn ">
                     <div class="arrow-left btn btn-light">
                         <img src="img/arrow-left.png" alt="">
+                    </div>
+                    <div>
+                        <div id="currentquestion"></div>
+                        <div id="questionAmount"></div>
                     </div>
                     <div class="arrow-right btn btn-light">
                         <img src="img/arrow-right.png" alt="">

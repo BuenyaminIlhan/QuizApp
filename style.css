@@ -3,7 +3,7 @@ body {
 }
 
 .container-card {
-    min-height: 100vw;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,8 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
-.arrow-btn{
+
+.arrow-btn {
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
@@ -83,5 +84,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-cursor: pointer;
+    cursor: pointer;
+}
+
+.arrow-btn div {
+    display: flex;
+    padding-right: 4px;
+}
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: #183be84e;
 }
