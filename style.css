@@ -73,9 +73,15 @@ body {
 
 .arrow-btn img {
     height: 30px;
+    padding: 8px;
 }
 
 .arrow-right,
 .arrow-left {
     background-color: lightgray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+cursor: pointer;
 }
