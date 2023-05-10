@@ -119,9 +119,15 @@ function answer(selection) {
     console.log('selectedQuestionNumber is ', selectedQuestionNumber);          // In der Console wird die letzt Buschstabe von den abgeklickten Anwort angezeigt.
     console.log('Current question is ', question['right-answer'])               // In der Console wird der Inhalt vom Json Array in dem das Element right-answer ist die 0 stelle ausgegeben.
 
+
+    let idOfRightAnswer = `answer${question['right-answer']}`;                  // Die Variable bekommt den wert answer(aus dem Json Array in dem right-answer ist den inhalt an der 0 stelle)
     if (selectedQuestionNumber == question['right-answer']) {                   // wenn die Buchstabe von der angeklickten antwort mit der im Json Array hinterlegten Element right-answer identisch ist,
         console.log('Richtige Antwort!!!');                                     // wird die Console ausgegeben.
+        document.getElementById(selection).parentNode.classList.add('bg-success') // mit der Function .parentNode wird hier die CSS Klasse den übergeordnete container die Klasse zugewiesen. 
     } else {                                                                    // wenn nicht
         console.log('Falsche Antwort!!!')                                       // wird diese Console ausgegebn.
+        document.getElementById(selection).parentNode.classList.add('bg-danger')
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
+    document.getElementById('next-button').disabled = false;                    // enabled den button.
 }

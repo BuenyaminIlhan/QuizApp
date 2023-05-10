@@ -49,40 +49,43 @@
 
             <div class="card-body">
                 <h5 id="question" class="card-title"></h5>
-                <div class="card mb-2 quiz-answer-card"onclick="answer('answer1')">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer1')">
                     <div class="card-body" id="answer1">
                     </div>
                 </div>
 
-                <div class="card mb-2 quiz-answer-card"onclick="answer('answer2')">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer2')">
                     <div class="card-body" id="answer2">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2 quiz-answer-card"onclick="answer('answer3')">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer3')">
                     <div class="card-body" id="answer3">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2 quiz-answer-card"onclick="answer('answer4')">
+                <div class="card mb-2 quiz-answer-card" onclick="answer('answer4')">
                     <div class="card-body" id="answer4">
                         Antwort
                     </div>
 
                 </div>
                 <div class="arrow-btn ">
-                    <div class="arrow-left btn btn-light">
+                    <button class="arrow-left" id="previous-button">
                         <img src="img/arrow-left.png" alt="">
-                    </div>
+                    </button>
+                    
                     <div>
                         <div id="currentquestion"></div>
                         <div id="questionAmount"></div>
                     </div>
-                    <div class="arrow-right btn btn-light">
+
+                    <button class="arrow-right" id="next-button" disabled>
                         <img src="img/arrow-right.png" alt="">
-                    </div>
+                    </button>
+
                 </div>
             </div>
         </div>

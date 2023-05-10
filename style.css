@@ -79,12 +79,13 @@ body {
 
 .arrow-right,
 .arrow-left {
-    background-color: lightgray;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: none;
 }
 
 .arrow-btn div {
