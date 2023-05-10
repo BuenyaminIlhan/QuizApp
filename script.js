@@ -119,9 +119,9 @@ function answer(selection) {
     console.log('selectedQuestionNumber is ', selectedQuestionNumber);          // In der Console wird die letzt Buschstabe von den abgeklickten Anwort angezeigt.
     console.log('Current question is ', question['right-answer'])               // In der Console wird der Inhalt vom Json Array in dem das Element right-answer ist die 0 stelle ausgegeben.
 
-    if (selectedQuestionNumber == question['right-answer']) {
-        console.log('Richtige Antwort!!!');
-    } else {
-        console.log('Falsche Antwort!!!')
+    if (selectedQuestionNumber == question['right-answer']) {                   // wenn die Buchstabe von der angeklickten antwort mit der im Json Array hinterlegten Element right-answer identisch ist,
+        console.log('Richtige Antwort!!!');                                     // wird die Console ausgegeben.
+    } else {                                                                    // wenn nicht
+        console.log('Falsche Antwort!!!')                                       // wird diese Console ausgegebn.
     }
 }
