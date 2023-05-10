@@ -97,3 +97,25 @@ body {
     cursor: pointer;
     background-color: #183be84e;
 }
+
+.quiz-end {
+    z-index: 99;
+    position: absolute;
+    background-color: lightgray;
+    width: 100%;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-end a {
+    margin-left: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    color: brown;
+}
+
+.dNone {
+    display: none;
+}

@@ -85,7 +85,7 @@ let currentQuestion = 0;
 
 
 function init() {
-    showQuestion()
+
     showAmount()
     showAnswer()
 }
@@ -94,19 +94,28 @@ function init() {
 function showAmount() {
     document.getElementById('questionAmount').innerHTML = ` von ${questions.length}`;
 }
+//let questionNumber = 1
+// function showQuestion() {
+//     let question = questions[currentQuestion]
+//     document.getElementById('question').innerHTML = question['question']
 
-function showQuestion() {
-    let question = questions[currentQuestion]
-    document.getElementById('question').innerHTML = question['question']
-    document.getElementById('currentquestion').innerHTML = '1'
-}
+// }
 
 function showAnswer() {
-    let question = questions[currentQuestion]
-    document.getElementById('answer1').innerHTML = question['answer1']
-    document.getElementById('answer2').innerHTML = question['answer2']
-    document.getElementById('answer3').innerHTML = question['answer4']
-    document.getElementById('answer4').innerHTML = question['answer4']
+
+    if (currentQuestion >= questions.length) {
+        console.log('ende')
+        openEnd()
+    } else {
+        let question = questions[currentQuestion]
+
+        document.getElementById('currentquestion').innerHTML = currentQuestion + 1;
+        document.getElementById('question').innerHTML = question['question']
+        document.getElementById('answer1').innerHTML = question['answer1']
+        document.getElementById('answer2').innerHTML = question['answer2']
+        document.getElementById('answer3').innerHTML = question['answer3']
+        document.getElementById('answer4').innerHTML = question['answer4']
+    }
 }
 
 
@@ -114,20 +123,55 @@ function showAnswer() {
 
 function answer(selection) {
     let question = questions[currentQuestion];                                  // Die Variable question bekommt den Wert questions[0] also die erste stelle im JsonArray question
-    console.log('Selected answer is ', selection)                               // In der console wird die angeklickte Antwort angezeigt jedoch nur die Id.
     let selectedQuestionNumber = selection.slice(-1);                           // Die Variable bekommte den wert von dem angeklickte antwort jedoch nur die letzte Buchstabe.
-    console.log('selectedQuestionNumber is ', selectedQuestionNumber);          // In der Console wird die letzt Buschstabe von den abgeklickten Anwort angezeigt.
-    console.log('Current question is ', question['right-answer'])               // In der Console wird der Inhalt vom Json Array in dem das Element right-answer ist die 0 stelle ausgegeben.
-
-
     let idOfRightAnswer = `answer${question['right-answer']}`;                  // Die Variable bekommt den wert answer(aus dem Json Array in dem right-answer ist den inhalt an der 0 stelle)
     if (selectedQuestionNumber == question['right-answer']) {                   // wenn die Buchstabe von der angeklickten antwort mit der im Json Array hinterlegten Element right-answer identisch ist,
-        console.log('Richtige Antwort!!!');                                     // wird die Console ausgegeben.
         document.getElementById(selection).parentNode.classList.add('bg-success') // mit der Function .parentNode wird hier die CSS Klasse den übergeordnete container die Klasse zugewiesen. 
     } else {                                                                    // wenn nicht
-        console.log('Falsche Antwort!!!')                                       // wird diese Console ausgegebn.
         document.getElementById(selection).parentNode.classList.add('bg-danger')
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
     document.getElementById('next-button').disabled = false;                    // enabled den button.
 }
+
+function nextQuestion() {
+
+    currentQuestion++
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButton()
+    showAnswer();
+
+}
+function resetAnswerButton() {
+
+
+    document.getElementById('answer1').parentNode.classList.remove('bg-danger')
+    document.getElementById('answer1').parentNode.classList.remove('bg-success')
+
+    document.getElementById('answer2').parentNode.classList.remove('bg-danger')
+    document.getElementById('answer2').parentNode.classList.remove('bg-success')
+
+    document.getElementById('answer3').parentNode.classList.remove('bg-danger')
+    document.getElementById('answer3').parentNode.classList.remove('bg-success')
+
+    document.getElementById('answer4').parentNode.classList.remove('bg-danger')
+    document.getElementById('answer4').parentNode.classList.remove('bg-success')
+}
+
+function closEnd() {
+    document.getElementById('quiz-end').classList.add('dNone')
+}
+
+function openEnd() {
+    document.getElementById('quiz-end').style = '';
+}
+
+/* meine Lösung
+let question = questions[currentQuestion]
+document.getElementById('question').innerHTML = question['question']
+if(currentQuestion == questions.length) {
+currentQuestion=0;
+}
+*/
+
+

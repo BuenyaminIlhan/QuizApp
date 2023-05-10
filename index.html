@@ -35,7 +35,10 @@
             <span class="navbar-brand mb-0 h1">Quiz App</span>
         </div>
     </nav>
-    <div class="container-card">
+    <div id="container-card" class="container-card">
+        <div id="quiz-end" class="quiz-end" style="display: none;">ende
+            <a onclick="closEnd()" href="index.html">Neu Spielen</a>
+        </div>
         <div class="card quiz-card" style="width: 18rem;">
             <div class="img-container">
                 <img src="img/Group 8.png" class="card-img-top" alt="...">
@@ -73,16 +76,14 @@
 
                 </div>
                 <div class="arrow-btn ">
-                    <button class="arrow-left" id="previous-button">
-                        <img src="img/arrow-left.png" alt="">
-                    </button>
-                    
+
+
                     <div>
                         <div id="currentquestion"></div>
                         <div id="questionAmount"></div>
                     </div>
 
-                    <button class="arrow-right" id="next-button" disabled>
+                    <button onclick="nextQuestion()" class="arrow-right" id="next-button" disabled>
                         <img src="img/arrow-right.png" alt="">
                     </button>
 
