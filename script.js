@@ -79,7 +79,7 @@ let questions = [{
     'right-answer': '4'
 },
 ];
-
+let rightanswers = 0;
 let currentQuestion = 0;
 
 
@@ -106,7 +106,16 @@ function showAnswer() {
     if (currentQuestion >= questions.length) {
         console.log('ende')
         openEnd()
+        document.getElementById('amount-of-questions').innerHTML = questions.length
+        document.getElementById('right-answers').innerHTML = rightanswers;
     } else {
+
+        let percent = currentQuestion / questions.length;
+
+        percent = percent * 100;
+        document.getElementById('progress-bar').innerHTML = `${percent}%`
+        document.getElementById('progress-bar').style.width = `${percent}%`
+        console.log(percent)
         let question = questions[currentQuestion]
 
         document.getElementById('currentquestion').innerHTML = currentQuestion + 1;
@@ -127,6 +136,7 @@ function answer(selection) {
     let idOfRightAnswer = `answer${question['right-answer']}`;                  // Die Variable bekommt den wert answer(aus dem Json Array in dem right-answer ist den inhalt an der 0 stelle)
     if (selectedQuestionNumber == question['right-answer']) {                   // wenn die Buchstabe von der angeklickten antwort mit der im Json Array hinterlegten Element right-answer identisch ist,
         document.getElementById(selection).parentNode.classList.add('bg-success') // mit der Function .parentNode wird hier die CSS Klasse den übergeordnete container die Klasse zugewiesen. 
+        rightanswers++
     } else {                                                                    // wenn nicht
         document.getElementById(selection).parentNode.classList.add('bg-danger')
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')

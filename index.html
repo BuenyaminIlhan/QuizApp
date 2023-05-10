@@ -36,7 +36,9 @@
         </div>
     </nav>
     <div id="container-card" class="container-card">
-        <div id="quiz-end" class="quiz-end" style="display: none;">ende
+        
+        <div id="quiz-end" class="quiz-end" style="display: none;" >
+            <div>Du hast <b id="right-answers">XXX</b> von <b id="amount-of-questions">XXX</b> richtig beantwortet</div>
             <a onclick="closEnd()" href="index.html">Neu Spielen</a>
         </div>
         <div class="card quiz-card" style="width: 18rem;">
@@ -52,6 +54,9 @@
 
             <div class="card-body">
                 <h5 id="question" class="card-title"></h5>
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
                 <div class="card mb-2 quiz-answer-card" onclick="answer('answer1')">
                     <div class="card-body" id="answer1">
                     </div>
