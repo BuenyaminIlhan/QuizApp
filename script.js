@@ -170,6 +170,9 @@ function resetAnswerButton() {
 
 function closEnd() {
     document.getElementById('quiz-end').classList.add('dNone')
+    rightanswers = 0;
+    currentQuestion = 0;
+    init();
 }
 
 function openEnd() {
