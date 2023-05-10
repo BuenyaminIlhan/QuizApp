@@ -4,7 +4,7 @@ let questions = [{
     'answer2': 'B) HTML',
     'answer3': 'C) CSS',
     'answer4': 'D) SQL',
-    'right-answer': 'A) Python'
+    'right-answer': '1'
 },
 {
     'question': 'Welche der folgenden Aussagen über JavaScript ist korrekt?',
@@ -12,7 +12,7 @@ let questions = [{
     'answer2': 'B) JavaScript wird nur für die Entwicklung von serverseitigen Anwendungen verwendet.',
     'answer3': 'C) JavaScript wird von allen modernen Browsern unterstützt.',
     'answer4': 'D) JavaScript kann nur für die Erstellung von statischen Webseiten verwendet werden.',
-    'right-answer': 'C) JavaScript wird von allen modernen Browsern unterstützt.'
+    'right-answer': '3'
 },
 {
     'question': 'Was ist der Unterschied zwischen "undefined" und "null" in JavaScript?',
@@ -20,7 +20,7 @@ let questions = [{
     'answer2': 'B) "undefined" bedeutet, dass eine Variable nicht deklariert wurde, während "null" explizit einem Objekt als Wert zugewiesen wurde.',
     'answer3': 'C) "undefined" und "null" bedeuten dasselbe in JavaScript und können synonym verwendet werden.',
     'answer4': 'D) "undefined" und "null" sind beide Fehlermeldungen, die auf fehlerhaften Code hinweisen.',
-    'right-answer': 'A) "undefined" bedeutet, dass eine Variable deklariert wurde, aber keinen Wert hat, während "null" explizit einem Objekt als Wert zugewiesen wurde.'
+    'right-answer': '1'
 },
 {
     'question': 'Welche der folgenden Methoden wird verwendet, um eine Schleife in JavaScript zu beenden?',
@@ -28,7 +28,7 @@ let questions = [{
     'answer2': 'B) continue;',
     'answer3': 'C) return;',
     'answer4': 'D) exit;',
-    'right-answer': 'A) break;'
+    'right-answer': '1'
 },
 {
     'question': 'Was ist der Unterschied zwischen == und === Operatoren in JavaScript?',
@@ -36,7 +36,7 @@ let questions = [{
     'answer2': 'B) Der == Operator vergleicht den Wert und den Datentyp der Variablen, während der === Operator nur den Wert vergleicht',
     'answer3': 'C) Der === Operator vergleicht den Wert und den Datentyp der Variablen, während der == Operator nur den Wert vergleicht.',
     'answer4': 'D) Der == Operator ist veraltet und sollte nicht mehr verwendet werden.',
-    'right-answer': 'C) Der === Operator vergleicht den Wert und den Datentyp der Variablen, während der == Operator nur den Wert vergleicht.'
+    'right-answer': '3'
 },
 {
     'question': 'Welches der folgenden Konstrukte in JavaScript wird verwendet, um asynchrone Operationen auszuführen und auf das Ergebnis zu warten?',
@@ -44,7 +44,7 @@ let questions = [{
     'answer2': 'B) Callbacks',
     'answer3': 'C) Arrays',
     'answer4': 'D) Loops',
-    'right-answer': 'A) Promises'
+    'right-answer': '1'
 },
 {
     'question': 'Welche der folgenden Methoden wird verwendet, um ein Element in JavaScript zu entfernen?',
@@ -52,7 +52,7 @@ let questions = [{
     'answer2': 'B) element.hide()',
     'answer3': 'C) element.delete()',
     'answer4': 'D) element.detach()',
-    'right-answer': 'A) element.remove()'
+    'right-answer': '1'
 },
 {
     'question': 'Welche der folgenden Methoden wird verwendet, um eine JavaScript-Funktion in regelmäßigen Abständen auszuführen?',
@@ -60,7 +60,7 @@ let questions = [{
     'answer2': 'B) setInterval()',
     'answer3': 'C) setImmediate()',
     'answer4': 'D) requestAnimationFrame()',
-    'right-answer': 'B) setInterval()'
+    'right-answer': '2'
 },
 {
     'question': 'Was ist der Unterschied zwischen let, const und var in JavaScript?',
@@ -68,7 +68,7 @@ let questions = [{
     'answer2': 'B) var ist veraltet und sollte nicht mehr verwendet werden.',
     'answer3': 'C) let und const sind blockscoped, während var functionscoped ist.',
     'answer4': 'D) const wird verwendet, um Konstanten zu deklarieren, während let und var für Variablen verwendet werden.',
-    'right-answer': 'C) let und const sind blockscoped, während var functionscoped ist.'
+    'right-answer': '3'
 },
 {
     'question': 'Welches der folgenden Ereignisse wird ausgelöst, wenn ein Benutzer einen Mausklick auf ein Element ausführt und ihn dann loslässt?',
@@ -76,7 +76,7 @@ let questions = [{
     'answer2': 'B) mouseout',
     'answer3': 'C) mouseclick',
     'answer4': 'D) mouseup',
-    'right-answer': 'D) mouseup'
+    'right-answer': '4'
 },
 ];
 
@@ -109,11 +109,19 @@ function showAnswer() {
     document.getElementById('answer4').innerHTML = question['answer4']
 }
 
+
+// Version von Junus
+
 function answer(selection) {
-    let question = questions[currentQuestion]
-    if (selection == questions[0]['right-answer']) {
-        console.log('right')
+    let question = questions[currentQuestion];                                  // Die Variable question bekommt den Wert questions[0] also die erste stelle im JsonArray question
+    console.log('Selected answer is ', selection)                               // In der console wird die angeklickte Antwort angezeigt jedoch nur die Id.
+    let selectedQuestionNumber = selection.slice(-1);                           // Die Variable bekommte den wert von dem angeklickte antwort jedoch nur die letzte Buchstabe.
+    console.log('selectedQuestionNumber is ', selectedQuestionNumber);          // In der Console wird die letzt Buschstabe von den abgeklickten Anwort angezeigt.
+    console.log('Current question is ', question['right-answer'])               // In der Console wird der Inhalt vom Json Array in dem das Element right-answer ist die 0 stelle ausgegeben.
+
+    if (selectedQuestionNumber == question['right-answer']) {
+        console.log('Richtige Antwort!!!');
     } else {
-        console.log(questions[selection]['right-answer'])
+        console.log('Falsche Antwort!!!')
     }
 }
